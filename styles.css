@@ -150,3 +150,46 @@ html,body{max-width:100%;overflow-x:hidden}.app-shell,.main-area,.content,.dashb
   .setting-item b{font-size:14px}
   .toast{font-size:13px}
 }
+
+/* Front cover for the study-book PDF. */
+.book-cover{min-height:650px;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(24px,5vw,52px);margin-bottom:22px;background:#fff;color:#111;border:1px solid #222;font-family:Arial,Helvetica,sans-serif}
+.cover-top{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.cover-mark{width:46px;height:46px;display:grid;place-items:center;border:1.5px solid #111;border-radius:50%;font-size:16px;font-weight:700;letter-spacing:-1px}
+.cover-brand{display:grid;gap:3px;letter-spacing:1.4px}
+.cover-brand b{font-size:12px}
+.cover-brand small{font-size:9px;letter-spacing:1.8px;color:#555}
+.cover-art{position:absolute;right:4%;top:25%;width:min(43%,360px);fill:none;stroke:#111;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:.13}
+.cover-copy{position:relative;z-index:1;margin:auto 0;padding:42px 0}
+.cover-kicker{font-size:10px;font-weight:700;letter-spacing:2.4px;margin:0 0 17px;color:#444}
+.cover-title{font:700 clamp(38px,6vw,68px)/1.04 Arial,Helvetica,sans-serif!important;letter-spacing:-2.5px!important;margin:0 0 16px!important;text-align:left!important;border:0!important;padding:0!important;max-width:650px}
+.cover-title span{font-weight:400}
+.cover-subtitle{font-size:14px;color:#555;max-width:380px;line-height:1.6;margin:0}
+.cover-bottom{position:relative;z-index:1;display:grid;gap:24px}
+.cover-stats{display:flex;gap:38px}
+.cover-stats span{display:grid;gap:4px}
+.cover-stats b{font-size:22px;font-weight:700}
+.cover-stats small{font-size:9px;letter-spacing:1.7px;color:#555}
+.cover-footer{padding-top:12px;border-top:1px solid #777;display:flex;justify-content:space-between;gap:12px;font-size:9px;letter-spacing:.5px;color:#444}
+.book-content>h1{margin:0 0 2px!important;text-align:left!important}
+.book-content .book-meta{margin-bottom:5mm}
+.book-content .chapter.first-chapter{break-before:auto!important;page-break-before:auto!important}
+@media print{
+  .print-book .book-cover{height:225mm;min-height:225mm;padding:11mm;margin:0;border:1pt solid #111;break-after:page;page-break-after:always}
+  .print-book .cover-mark{width:18mm;height:18mm;font-size:15pt}
+  .print-book .cover-brand b{font-size:11pt}
+  .print-book .cover-brand small{font-size:8pt}
+  .print-book .cover-art{right:5mm;top:48mm;width:78mm;opacity:.12}
+  .print-book .cover-copy{padding:0}
+  .print-book .cover-kicker{font-size:8pt;margin:0 0 5mm;letter-spacing:2pt}
+  .print-book .cover-title{font:700 34pt/1.06 Arial,Helvetica,sans-serif!important;letter-spacing:-1pt!important;margin:0 0 4mm!important}
+  .print-book .cover-subtitle{font-size:10pt;max-width:100mm}
+  .print-book .cover-bottom{gap:8mm}
+  .print-book .cover-stats{gap:15mm}
+  .print-book .cover-stats b{font-size:18pt}
+  .print-book .cover-stats small{font-size:7pt}
+  .print-book .cover-footer{font-size:7pt;padding-top:3mm}
+  .print-book .book-content>h1{font-size:14pt;margin:0 0 1mm!important}
+  .print-book .book-content .book-meta{font-size:8pt;margin:0 0 3mm}
+  .print-book .book-content .chapter.first-chapter{break-before:auto!important;page-break-before:auto!important}
+  .print-book .qid-print{font:700 9pt Arial,Helvetica,sans-serif;color:#111;margin-right:3mm;white-space:nowrap}
+}
