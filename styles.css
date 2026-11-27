@@ -174,7 +174,7 @@ html,body{max-width:100%;overflow-x:hidden}.app-shell,.main-area,.content,.dashb
 .book-content .book-meta{margin-bottom:5mm}
 .book-content .chapter.first-chapter{break-before:auto!important;page-break-before:auto!important}
 @media print{
-  .print-book .book-cover{height:225mm;min-height:225mm;padding:11mm;margin:0;border:1pt solid #111;break-after:page;page-break-after:always}
+  .print-book .book-cover{width:calc(100vw - 24mm);height:calc(100vh - 24mm);min-height:0;padding:12mm;margin:12mm auto;border:1pt solid #111;break-after:page;page-break-after:always}
   .print-book .cover-mark{width:18mm;height:18mm;font-size:15pt}
   .print-book .cover-brand b{font-size:11pt}
   .print-book .cover-brand small{font-size:8pt}
@@ -192,4 +192,5 @@ html,body{max-width:100%;overflow-x:hidden}.app-shell,.main-area,.content,.dashb
   .print-book .book-content .book-meta{font-size:8pt;margin:0 0 3mm}
   .print-book .book-content .chapter.first-chapter{break-before:auto!important;page-break-before:auto!important}
   .print-book .qid-print{font:700 9pt Arial,Helvetica,sans-serif;color:#111;margin-right:3mm;white-space:nowrap}
+  .print-book .pnum{display:none!important}
 }
