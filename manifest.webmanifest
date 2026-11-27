@@ -1,0 +1,12 @@
+{
+  "name": "Quant Vault — Personal Question Bank",
+  "short_name": "Quant Vault",
+  "description": "A private, offline-first question bank for quantitative aptitude practice.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f8f8fc",
+  "theme_color": "#6754ec",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

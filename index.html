@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#6754ec" />
+  <meta name="description" content="Your personal, offline-first quantitative aptitude question bank." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <title>Quant Vault — Practice, your way</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Quant Vault home"><span class="brand-mark">Q<span>✦</span></span><span><b>quant vault</b><small>Your practice, organised</small></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+        <button class="nav-item" data-page="chapters"><span class="nav-icon">▤</span>My Chapters <span class="nav-count" id="chapterNavCount">0</span></button>
+        <button class="nav-item" data-page="questions"><span class="nav-icon">▧</span>All Questions <span class="nav-count" id="questionNavCount">0</span></button>
+        <button class="nav-item" data-page="starred"><span class="nav-icon star-nav">☆</span>Starred Questions</button>
+        <button class="nav-item" data-page="add"><span class="nav-icon">＋</span>Add Question</button>
+        <button class="nav-item" data-page="builder"><span class="nav-icon">▤</span>PDF & Book Builder</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="offline-badge"><span class="online-dot"></span><span><b>Private by design</b><small id="connectionText">Your data stays on this device</small></span></div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Backup & Settings</button>
+        <div class="sidebar-foot">Made for the long game <span>✦</span></div>
+      </div>
+    </aside>
+    <div class="drawer-scrim" id="drawerScrim"></div>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle" aria-label="Open menu">☰</button><div class="crumb"><span>Quant Vault</span><span class="crumb-slash">/</span><b id="pageCrumb">Dashboard</b></div><span class="deadline-chip" id="countdownLabel" title="Countdown to July 1, 2027"></span><div class="top-actions"><button class="avatar" title="Your local workspace">Q</button></div></header>
+      <div class="content" id="content" aria-live="polite"></div>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav-item active" data-page="dashboard"><span>⌂</span><small>Home</small></button>
+    <button class="mobile-nav-item" data-page="chapters"><span>▤</span><small>Chapters</small></button>
+    <button class="mobile-nav-item" data-page="questions"><span>▧</span><small>Questions</small></button>
+    <button class="mobile-nav-item mobile-add" data-page="add"><span>＋</span><small>Add</small></button>
+    <button class="mobile-nav-item" id="mobileMore" aria-label="More sections"><span>•••</span><small>More</small></button>
+  </nav>
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
