@@ -116,3 +116,37 @@ html,body{max-width:100%;overflow-x:hidden}.app-shell,.main-area,.content,.dashb
   .print-book .qid-print{font:400 8pt Arial,Helvetica,sans-serif;color:#444}
   .print-book .pnum{position:fixed;bottom:-10mm;left:0;right:0;text-align:center;color:#444;font-size:8pt}
 }
+
+/* Larger, easier-to-read controls and text on phones. */
+@media(max-width:800px){
+  body{font-size:16px;line-height:1.5}
+  .nav-item{font-size:14px;min-height:44px}
+  .brand b{font-size:19px}
+  .brand small,.offline-badge small,.sidebar-foot{font-size:12px}
+  .offline-badge b{font-size:13px}
+  .mobile-nav-item small{font-size:11px}
+  .crumb{font-size:13px}
+  .page-head h1{font-size:25px}
+  .page-head p,.welcome p{font-size:14px;line-height:1.55}
+  .eyebrow{font-size:11px}
+  .panel-head h2{font-size:16px}
+  .subtle,.bar-label,.stat-label,.recent-info small,.q-meta,.chapter-card-foot{font-size:12px}
+  .recent-info b{font-size:13px}
+  .stat-foot,.empty-state p{font-size:12px}
+  .quick-tile{font-size:13px}
+  .qid,.tag,.pill{font-size:11px}
+  .question-text{font-size:16px;line-height:1.65}
+  .q-actions .btn,.toolbar .btn{min-height:42px}
+  .btn{font-size:14px;min-height:44px;padding:11px 15px}
+  .btn-small{font-size:13px;padding:9px 12px}
+  .input,.select,.textarea{font-size:16px;line-height:1.4}
+  .field label,.checkline{font-size:14px}
+  .field-help,.notice,.ocr-note,.ocr-status,.setting-item p{font-size:12px;line-height:1.55}
+  .upload-zone b{font-size:14px}
+  .upload-zone small{font-size:12px}
+  .builder-row b{font-size:13px;line-height:1.45}
+  .builder-row small{font-size:12px}
+  .builder-settings .input,.builder-settings .select{font-size:16px;min-height:44px}
+  .setting-item b{font-size:14px}
+  .toast{font-size:13px}
+}
