@@ -100,7 +100,7 @@ async function initFirebase(){if(!cloudReadyConfig()){cloudState='Add the Fireba
 function bindQuestionForm(){const input=$('#imageUpload'),zone=$('#uploadZone');zone?.addEventListener('click',e=>{if(e.target!==input)input.click()});input?.addEventListener('change',()=>{const file=input.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{uploadedImage=reader.result;const img=$('#imagePreview');img.src=uploadedImage;img.classList.remove('hide');$('#runOcr').classList.remove('hide');$('#ocrStatus').textContent='Image ready. Select “Try text extraction” to run OCR.'};reader.readAsDataURL(file)});$('#runOcr')?.addEventListener('click',runOcr);$('#saveQuestion')?.addEventListener('click',saveQuestionForm);$('#qText')?.focus()}
 async function saveQuestionForm(){const text=$('#qText').value.trim(),chapterId=$('#qChapter').value;if(!text)return toast('Add the question statement before saving.','error');if(!chapterId||!state.chapters.some(c=>c.id===chapterId))return toast('Create or select a chapter first.','error');const now=Date.now(),prev=editingQuestion;const q={id:prev?.id||uid(),qid:prev?.qid||makeQid(chapterId),text,chapterId,topic:$('#qTopic').value.trim(),starred:$('#qStar').checked,source:$('#qSource').value.trim(),remarks:$('#qRemarks').value.trim(),createdAt:prev?.createdAt||now,updatedAt:now,imagePath:prev?.imagePath||null,image:state.settings.retainImages?(uploadedImage||prev?.image||null):null};if(prev)state.questions[state.questions.findIndex(x=>x.id===prev.id)]=q;else state.questions.push(q);await saveState();editingQuestion=null;uploadedImage=null;toast(prev?'Question updated · ID preserved':`Question saved · ${q.qid}`);navTo('questions')}
 async function runOcr(){
-  const image=uploadedImage||editingQuestion?.image;if(!image)return;
+  const uploadedForOcr=Boolean(uploadedImage),image=uploadedImage||editingQuestion?.image;if(!image)return;
   const status=$('#ocrStatus'),button=$('#runOcr');
   if(button)button.disabled=true;
   let worker;
@@ -133,6 +133,14 @@ async function runOcr(){
     toast('Text extraction could not finish.','error');
   }finally{
     if(worker)try{await worker.terminate()}catch(e){console.warn('OCR worker cleanup failed',e)}
+    if(uploadedForOcr){
+      uploadedImage=null;
+      const preview=$('#imagePreview'),input=$('#imageUpload');
+      if(preview){preview.removeAttribute('src');preview.classList.add('hide')}
+      if(input)input.value='';
+      if(button)button.classList.add('hide');
+      status.textContent+=' Source image cleared from this device.';
+    }
     if(button)button.disabled=false;
   }
 }
